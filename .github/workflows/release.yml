@@ -1,0 +1,53 @@
+name: Release
+
+# Publishes to npm whenever a tag matching `v*` is pushed.
+# Uses OIDC trusted publishing (no NPM_TOKEN secret needed) — configure the
+# trusted publisher in the package's npm settings under:
+#   https://www.npmjs.com/package/sanctum-client/access
+#
+# To release: bump the version, push the tag.
+#   pnpm version patch       # or minor / major
+#   git push --follow-tags
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write          # required for npm provenance / OIDC trusted publishing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+      - name: Publish to npm with provenance
+        run: pnpm publish --provenance --access public --no-git-checks
