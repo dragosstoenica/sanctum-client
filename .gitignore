@@ -1,0 +1,12 @@
+node_modules
+dist
+coverage
+.DS_Store
+*.log
+.env
+.env.local
+.vitest-cache
+.turbo
+
+# Local Claude harness state (machine-specific)
+.claude/settings.local.json

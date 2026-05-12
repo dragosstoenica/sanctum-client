@@ -1,0 +1,165 @@
+{
+  "name": "sanctum-client",
+  "version": "0.1.0",
+  "description": "Laravel Sanctum authentication for React, Next.js 16+, Expo, and TanStack Router/Start. Cookie + token modes, CSRF, cross-tab sync, Fortify lifecycle.",
+  "license": "MIT",
+  "author": {
+    "name": "Dragos Stoenica",
+    "email": "mindwar@gmail.com",
+    "url": "https://github.com/dragosstoenica"
+  },
+  "homepage": "https://github.com/dragosstoenica/sanctum-client#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dragosstoenica/sanctum-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dragosstoenica/sanctum-client/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "require": "./dist/react/index.cjs"
+    },
+    "./fortify": {
+      "types": "./dist/fortify/index.d.ts",
+      "import": "./dist/fortify/index.js",
+      "require": "./dist/fortify/index.cjs"
+    },
+    "./react-query": {
+      "types": "./dist/react-query/index.d.ts",
+      "import": "./dist/react-query/index.js",
+      "require": "./dist/react-query/index.cjs"
+    },
+    "./next": {
+      "types": "./dist/next/index.d.ts",
+      "import": "./dist/next/index.js",
+      "require": "./dist/next/index.cjs"
+    },
+    "./next/server": {
+      "types": "./dist/next/server.d.ts",
+      "import": "./dist/next/server.js",
+      "require": "./dist/next/server.cjs"
+    },
+    "./next/proxy": {
+      "types": "./dist/next/proxy.d.ts",
+      "import": "./dist/next/proxy.js",
+      "require": "./dist/next/proxy.cjs"
+    },
+    "./next/gateway": {
+      "types": "./dist/next/gateway.d.ts",
+      "import": "./dist/next/gateway.js",
+      "require": "./dist/next/gateway.cjs"
+    },
+    "./next/actions": {
+      "types": "./dist/next/actions.d.ts",
+      "import": "./dist/next/actions.js",
+      "require": "./dist/next/actions.cjs"
+    },
+    "./expo": {
+      "types": "./dist/expo/index.d.ts",
+      "import": "./dist/expo/index.js",
+      "require": "./dist/expo/index.cjs"
+    },
+    "./tanstack": {
+      "types": "./dist/tanstack/index.d.ts",
+      "import": "./dist/tanstack/index.js",
+      "require": "./dist/tanstack/index.cjs"
+    },
+    "./tanstack/server": {
+      "types": "./dist/tanstack/server.d.ts",
+      "import": "./dist/tanstack/server.js",
+      "require": "./dist/tanstack/server.cjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src tests",
+    "prepublishOnly": "pnpm typecheck && pnpm test && pnpm build"
+  },
+  "keywords": [
+    "auth",
+    "authentication",
+    "csrf",
+    "expo",
+    "fortify",
+    "laravel",
+    "nextjs",
+    "personal-access-token",
+    "react",
+    "react-native",
+    "sanctum",
+    "session",
+    "spa",
+    "tanstack-router",
+    "tanstack-start"
+  ],
+  "peerDependencies": {
+    "@tanstack/react-query": "^5",
+    "@tanstack/react-router": "^1",
+    "@tanstack/react-start": "^1",
+    "expo-router": "^4 || ^5 || ^6",
+    "expo-secure-store": "^14 || ^15",
+    "next": "^16",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "peerDependenciesMeta": {
+    "next": { "optional": true },
+    "react": { "optional": true },
+    "react-dom": { "optional": true },
+    "expo-router": { "optional": true },
+    "expo-secure-store": { "optional": true },
+    "@tanstack/react-query": { "optional": true },
+    "@tanstack/react-router": { "optional": true },
+    "@tanstack/react-start": { "optional": true }
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-router": "^1.95.0",
+    "@tanstack/react-start": "^1.95.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "expo-router": "^4.0.0",
+    "expo-secure-store": "^14.0.0",
+    "happy-dom": "^15.11.0",
+    "next": "^16.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  }
+}
